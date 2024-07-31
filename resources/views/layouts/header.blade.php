@@ -2,7 +2,7 @@
     <div class="logo-header">
         <a href="">
             <img
-            width="50px"
+            {{-- width="50px" --}}
             src="https://cdn.pixabay.com/photo/2017/02/18/19/20/logo-2078018_960_720.png"
             alt="Logo personal portfolio"
             title="Logo personal portfolio"

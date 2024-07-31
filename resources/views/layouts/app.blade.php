@@ -21,16 +21,12 @@
 
     <link rel="stylesheet" href="estilos.css">
 
-    <style>
-        .active {
-            color: red;
-        }
+   {{-- isto correu com
+   npm install
+   npm run dev
+   npm run watch --}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-        .img-team {
-            width: 50%;
-        }
-        
-    </style>
 </head>
 
 <body>
