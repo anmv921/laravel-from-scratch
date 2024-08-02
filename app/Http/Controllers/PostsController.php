@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -55,11 +56,6 @@ class PostsController extends Controller
         // $posts = DB::table('posts')
         // ->orderBy('created_at', 'asc')
         // ->whereNotNull('created_at')
-        // ->get();
-
-        // $posts = DB::table('posts')
-        // ->orderBy('created_at', 'asc')
-        // ->whereNotNull('created_at')
         // ->first();
 
         $id = 5;
@@ -91,9 +87,30 @@ class PostsController extends Controller
             'body' => 'body ydob'
         ]);
 
+        $posts = DB::table('posts')
+        ->orderBy('created_at', 'asc')
+        ->whereNotNull('created_at')
+        ->limit(5)
+        ->get();
+
+        $id = 15;
+
+        $posts = DB::table('posts')
+        ->where('id', '=', $id)
+        ->update([
+            'title' => 'New Title where id is 15 ',
+            'body' => 'new body updated'
+        ]);
+
+        $id = 9;
+
+        $posts = DB::table('posts')
+        ->where('id', '=', $id)
+        ->delete();
+
         dd($posts);
 
         return view('posts/index');
     } // End index
 
-}
+} // End class
